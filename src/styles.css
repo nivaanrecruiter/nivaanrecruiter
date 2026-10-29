@@ -1,0 +1,96 @@
+@import 'tailwindcss' source('../');
+
+@theme {
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-sans: 'Instrument Sans', ui-sans-serif, sans-serif;
+  --color-ink: #16201c;
+  --color-forest: #1d3a32;
+  --color-moss: #3f6b5c;
+  --color-sage: #c9d6cc;
+  --color-cream: #f5f0e6;
+  --color-paper: #fbf8f2;
+  --color-saffron: #d4893a;
+  --color-clay: #b4582f;
+}
+
+html {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-saffron);
+  color: var(--color-ink);
+}
+
+.form-label {
+  @apply block text-sm font-semibold mb-2 text-ink;
+}
+
+.form-input {
+  @apply w-full rounded-xl border border-ink/15 bg-white px-4 py-3 text-ink placeholder:text-ink/40 transition focus-visible:border-moss focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-moss;
+}
+
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-saffron disabled:cursor-wait disabled:opacity-70;
+}
+
+@utility btn-primary {
+  @apply btn bg-saffron text-ink hover:bg-[#e09a4d] active:translate-y-px;
+}
+
+@utility btn-dark {
+  @apply btn bg-forest text-cream hover:bg-moss active:translate-y-px;
+}
+
+@utility btn-ghost {
+  @apply btn border border-current hover:bg-ink/5;
+}
+
+@utility eyebrow {
+  @apply text-xs font-semibold uppercase tracking-[0.2em];
+}
+
+@utility chip {
+  @apply inline-flex items-center rounded-full border border-ink/15 px-3 py-1 text-xs font-medium;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.rise {
+  animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.08;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
