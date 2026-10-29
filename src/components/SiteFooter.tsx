@@ -14,7 +14,7 @@ export function SiteFooter() {
           </p>
         </div>
         <div>
-          <h2 className="eyebrow text-saffron mb-4">Get in touch</h2>
+          <h2 className="eyebrow text-saffron mb-4">Get in touch with us</h2>
           <ul className="space-y-2 text-sm">
             <li>
               <a href={`mailto:${site.email}`} className="hover:text-cream">
